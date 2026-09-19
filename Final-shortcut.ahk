@@ -33,7 +33,7 @@ if shutdown_result = "Yes"
 }
 
 ^#!Numpad3::{
-    Run "powercfg.exe /s e7e86059-59ac-4be2-bf5b-aedc01d342be"
+    Run "powercfg.exe /s 65cc921e-d614-458f-95bd-494c757d1839  "
     Sleep 1000
     MsgBox "Ultimate performance mode", "Power Option"
 }
