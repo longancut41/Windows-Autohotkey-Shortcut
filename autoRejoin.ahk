@@ -10,13 +10,19 @@ enableRun(){
     if(!isEnable){
         global isEnable := true
         while(isEnable){
-            getColor := PixelGetColor(993, 633)
-            if(getColor == "0xFFFFFF"){
-                SendEvent "{Click 993 633}"
+            getColor1 := PixelGetColor(997, 596)
+            getColor2 := PixelGetColor(997, 619)
+            if (getColor1 == "0xFFFFFF"){
+                SendEvent "{Click 997 596}"
                 Sleep 30000
                 SendEvent "{Click 990 990}"
             }
-            Sleep 100000
+            else if (getColor2 == "0xFFFFFF"){
+                SendEvent "{Click 997 619}"
+                Sleep 30000
+                SendEvent "{Click 990 990}"
+            }
+            Sleep 60000
         }
     }
 }
@@ -38,4 +44,11 @@ CapsLock::Suspend 1
 ^#!down::{
     SoundBeep
     disableRun()
+}
+
+^#!t::{
+    MouseGetPos(&X, &Y)
+    getColor := PixelGetColor(X, Y)
+    MsgBox Format("X: {}, Y: {}, color: {}", X, Y, getColor)
+
 }
